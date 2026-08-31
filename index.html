@@ -28,7 +28,7 @@
     color: var(--ink);
     font-family: 'Assistant', 'Segoe UI', Arial, sans-serif;
     font-size: 18px;
-    line-height: 1.65;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
   @media (prefers-reduced-motion: reduce){
@@ -73,7 +73,7 @@
 
   /* ---------- hero ---------- */
   .hero{
-    padding: 64px 0;
+    padding: 40px 0 32px;
     display: flex;
     align-items: center;
     gap: 44px;
@@ -98,11 +98,11 @@
   .hero-portrait img{ width: 100%; height: 100%; object-fit: cover; display: block; }
 
   /* ---------- lede ---------- */
-  .lede{ padding-bottom: 56px; }
+  .lede{ padding-bottom: 36px; }
   .lede p{ color: var(--ink-soft); max-width: 60ch; }
   .lede .service-line{
-    margin-top: 24px;
-    padding: 20px 24px;
+    margin-top: 16px;
+    padding: 16px 22px;
     border-inline-start: 4px solid var(--amber);
     background: #fdf6e9;
     color: var(--ink);
@@ -117,14 +117,14 @@
     border-bottom: 2px solid var(--ink);
   }
   .pillar{
-    padding: 36px 0;
+    padding: 22px 0;
     border-bottom: 1px solid var(--line);
   }
   .pillar-head{
     display: flex;
     align-items: baseline;
     gap: 14px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
   }
   .pillar-num{
     font-weight: 800;
@@ -135,7 +135,7 @@
     unicode-bidi: isolate;
   }
   .pillar h3{ font-size: 22px; }
-  .pillar ul{ list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .pillar ul{ list-style: none; display: flex; flex-direction: column; gap: 5px; }
   .pillar li{ color: var(--ink-soft); padding-inline-start: 18px; position: relative; }
   .pillar li::before{
     content: "";
@@ -149,32 +149,33 @@
   .pillar li b{ color: var(--ink); font-weight: 700; }
 
   /* ---------- why ---------- */
-  .why{ padding: 56px 0; }
-  .why h2{ font-size: 28px; margin-bottom: 16px; }
+  .why{ padding: 36px 0; }
+  .why h2{ font-size: 28px; margin-bottom: 10px; }
   .why p{
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 600;
-    line-height: 1.6;
+    line-height: 1.55;
     max-width: 58ch;
   }
 
   /* ---------- clients ---------- */
-  .clients{ padding-bottom: 64px; }
-  .clients h2{ font-size: 20px; font-weight: 700; color: var(--ink-faint); margin-bottom: 20px; }
+  .clients{ padding-bottom: 44px; }
+  .clients h2{ font-size: 20px; font-weight: 700; color: var(--ink-faint); margin-bottom: 14px; }
   .clients-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 16px;
+    display: flex;
+    gap: 12px;
   }
   .client-tile{
+    flex: 1 1 0;
+    min-width: 0;
     background: var(--tile);
     border: 1px solid var(--line);
     border-radius: 4px;
-    height: 110px;
+    height: 86px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px;
+    padding: 12px;
   }
   .client-tile img{
     max-width: 100%;
@@ -191,7 +192,7 @@
   .contact-inner{
     max-width: 720px;
     margin: 0 auto;
-    padding: 56px 24px;
+    padding: 40px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -219,12 +220,13 @@
 
   /* ---------- mobile ---------- */
   @media (max-width: 640px){
-    .hero{ flex-direction: column-reverse; text-align: center; padding: 44px 0; gap: 28px; }
-    .hero-portrait{ flex-basis: auto; width: 170px; height: 170px; }
+    .hero{ flex-direction: column-reverse; text-align: center; padding: 32px 0 24px; gap: 22px; }
+    .hero-portrait{ flex-basis: auto; width: 150px; height: 150px; }
     .brand-logo{ height: 56px; }
     .header-inner{ padding: 20px 24px 16px; }
-    .lede .service-line{ padding: 16px 18px; }
-    .clients-grid{ grid-template-columns: repeat(2, 1fr); }
+    .lede .service-line{ padding: 14px 16px; }
+    .clients-grid{ gap: 6px; }
+    .client-tile{ height: 54px; padding: 6px; border-radius: 3px; }
   }
 </style>
 </head>
