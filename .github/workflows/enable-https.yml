@@ -1,0 +1,28 @@
+name: enable-https
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+permissions:
+  pages: write
+  actions: write
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enforce HTTPS once DNS has propagated
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if dig +short galbiton.org.il @8.8.8.8 | grep -q '185\.199\.'; then
+            echo "DNS propagated"
+            if gh api -X PUT "repos/${{ github.repository }}/pages" -F https_enforced=true; then
+              echo "HTTPS enforced — disabling this workflow"
+              gh workflow disable enable-https.yml -R "${{ github.repository }}"
+            else
+              echo "Cert not ready yet — will retry next run"
+            fi
+          else
+            echo "DNS not propagated yet"
+          fi
